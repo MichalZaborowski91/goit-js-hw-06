@@ -14,15 +14,18 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
-const galleryUl = document.querySelector('.gallery');
-
+const gallery = document.querySelector('.gallery');
 for (const image of images) {
-  const imagesos = galleryUl.createElement('li');
-  galleryUl.after(imagesos);
-  image.src = image.url;
-
-  //.log(imagesos);
-
-  console.log(image.url);
-  console.log(image.alt);
+  const list = document.createElement('li');
+  gallery.prepend(list);
+  list.insertAdjacentHTML(
+    'afterbegin',
+    `<img class="imgStyle" src="${image.url}" alt="${image.alt}">`
+  );
+  const imgStyle = document.querySelector('.imgStyle');
+  // style for <img>
+  imgStyle.style.width = '250px';
+  imgStyle.style.height = '160px';
+  // style for <ul>
+  gallery.style.listStyle = 'none';
 }
