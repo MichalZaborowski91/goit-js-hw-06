@@ -27,5 +27,4 @@ for (const image of images) {
   imgStyle.style.width = '250px';
   imgStyle.style.height = '160px';
   // style for <ul>
-  gallery.style.listStyle = 'none';
 }
