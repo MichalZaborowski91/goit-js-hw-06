@@ -7,9 +7,9 @@ const ingredients = [
   'Condiments',
 ];
 const ingredientsUl = document.querySelector('#ingredients');
+let array = [];
 for (let i = 0; i < ingredients.length; i++) {
-  const list = document.createElement('li');
-  list.textContent = ingredients[i];
-  list.classList.add('item');
-  ingredientsUl.append(list);
+  array[i] = `<li>${ingredients[i]}</li>`;
 }
+let itemList = array.map((item) => item).join('');
+ingredientsUl.insertAdjacentHTML('afterbegin', itemList);
