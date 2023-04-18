@@ -5,7 +5,23 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-const divBoxex = document.querySelector('#boxex');
-const number = document.querySelector('input');
+const divBoxes = document.querySelector('#boxex');
+const input = document.querySelector('input');
 const createBtn = document.querySelector('[data-create]');
 const destroyBtn = document.querySelector('[data-destroy]');
+
+function createBoxes(amount) {
+  destroyBoxes();
+  for (let i = 0; i < amount; i++) {
+    const box = document.createElement('div');
+    box.style.width = `${30 + i * 10}px`;
+    box.style.height = `${30 + i * 10}px`;
+    box.style.backgroundColor = getRandomHexColor();
+    divBoxes.appendChild(box);
+  }
+}
+function destroyBoxes() {
+  divBoxes.innerHTML = '';
+}
+createBtn.addEventListener('click', createBoxes(input.value));
+destroyBtn.addEventListener('click', destroyBoxes);
